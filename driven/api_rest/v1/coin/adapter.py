@@ -14,7 +14,7 @@ class CoinRepositoryAdapter(CoinRepositoryPort):
 
     async def get_coins(self) -> List[Coin]:
         async with httpx.AsyncClient() as client:
-            response = await client.get(f"rest.coincap.io/v3/assets?apiKey={os.getenv('API_KEY')}")
+            response = await client.get(f"https://rest.coincap.io/v3/assets?apiKey={os.getenv('API_KEY')}")
             response.raise_for_status()
 
             data = CoinDataResponse(**response.json())
