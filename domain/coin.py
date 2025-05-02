@@ -7,5 +7,4 @@ class Coin(BaseModel):
     name: str
     price_usd: float
     market_cap_usd: float
-    change_percent_24hr: float
 
