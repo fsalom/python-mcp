@@ -15,7 +15,6 @@ class CoinMapper:
                 name=coin.name,
                 price_usd=coin.price_usd,
                 market_cap_usd=coin.market_cap_usd,
-                change_percent_24hr=coin.change_percent_24hr,
             )
             for coin in data.data
         ]
