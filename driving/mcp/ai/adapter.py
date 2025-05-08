@@ -1,7 +1,7 @@
 from application.services.coin_service import CoinServices
 from driven.api_rest.v1.coin.adapter import CoinRepositoryAdapter
 from driven.api_rest.v1.coin.mapper import CoinMapper
-from main import mcp_server
+from infrastructure.mcp.mcp_instance import mcp_server
 
 
 @mcp_server.tool(
