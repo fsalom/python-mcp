@@ -12,3 +12,6 @@ class CoinServices(CoinServicePort):
 
     async def get_coins(self) -> List[Coin]:
         return self.coin_repository.get_coins()
+
+    async def get_coin_with_id(self, id) -> Coin:
+        return self.coin_repository.get_coin_with_id(id)
