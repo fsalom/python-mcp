@@ -7,3 +7,7 @@ class CoinRepositoryPort(ABC):
     @abstractmethod
     def get_coins(self) -> List[Coin]:
         pass
+
+    @abstractmethod
+    def get_coin_with_id(self, id) -> Coin:
+        pass
