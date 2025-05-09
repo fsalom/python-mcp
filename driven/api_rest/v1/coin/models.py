@@ -25,3 +25,11 @@ class CoinDataResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class CoinDataSingleResponse(BaseModel):
+    data: CoinData
+    timestamp: int
+
+    class Config:
+        from_attributes = True
