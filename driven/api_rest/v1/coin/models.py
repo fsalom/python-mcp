@@ -1,6 +1,4 @@
 from typing import List
-
-from okx import MarketData
 from pydantic import BaseModel, Field
 
 
