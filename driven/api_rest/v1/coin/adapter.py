@@ -7,7 +7,7 @@ from domain.coin import Coin
 from domain.historical_price import HistoricalPrice
 from domain.market import Market
 from driven.api_rest.v1.coin.mapper import CoinMapper
-from driven.api_rest.v1.coin.models import CoinDataResponse, CoinData, CoinDataSingleResponse, MarketDataResponse, \
+from driven.api_rest.v1.coin.models import CoinDataResponse, CoinDataSingleResponse, MarketDataResponse, \
     HistoricalPriceData
 
 
