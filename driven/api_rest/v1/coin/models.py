@@ -34,11 +34,6 @@ class CoinDataSingleResponse(BaseModel):
         from_attributes = True
 
 
-class MarketDataResponse(BaseModel):
-    data: List[MarketData]
-    timestamp: int
-
-
 class MarketData(BaseModel):
     exchange_id: str = Field(alias="exchangeId")
     base_id: str = Field(alias="baseId")
@@ -53,6 +48,11 @@ class MarketData(BaseModel):
         allow_population_by_field_name = True
         populate_by_name = True
         from_attributes = True
+
+
+class MarketDataResponse(BaseModel):
+    data: List[MarketData]
+    timestamp: int
 
 
 class HistoricalPriceData(BaseModel):
