@@ -45,11 +45,11 @@ class CoinMapper:
         ]
 
     @staticmethod
-    def to_domains_historical_price(data: HistoricalPriceData) -> List[HistoricalPrice]:
+    def to_domains_historical_price(prices: List[HistoricalPriceData]) -> List[HistoricalPrice]:
         return [
             HistoricalPrice(
                 price_usd=price.price_usd,
                 date=price.date
             )
-            for price in data.data
+            for price in prices
         ]
