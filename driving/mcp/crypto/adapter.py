@@ -38,12 +38,14 @@ async def get_markets_for_crypto_coin_with_id(request: CoinIdRequest) -> List[Ma
 
 @mcp_server.tool(
     name="get_historical_price_for_crypto_coin_with_id",
-    description="Retrieve historical data for a specific asset."
-                "Id (string): The slug of the asset"
-                "Interval (string): interval choices m1 m5 m15 m30 h1 h2 h6 h12 d1"
-                "Start (int): NIX time in milliseconds. Omitting will return the most recent asset history."
-                "If start is supplied, end is required and vice versa"
-                "End (int): The end timestamp for the historical data."
+    description=(
+        "Retrieve historical data for a specific asset.\n"
+        "Parameters:\n"
+        "- id (str, required): The slug of the asset\n"
+        "- interval (str, required): Interval choices: m1, m5, m15, m30, h1, h2, h6, h12, d1\n"
+        "- start (int, optional): NIX timestamp in milliseconds. Required if 'end' is provided\n"
+        "- end (int, optional): End timestamp in milliseconds. Required if 'start' is provided"
+    )
 )
 async def get_historical_price_for_crypto_coin_with_id(request: HistoricalPriceRequest) -> List[HistoricalPrice]:
     service = CoinServices(CoinRepositoryAdapter(CoinMapper()))
