@@ -2,5 +2,5 @@ from pydantic import BaseModel
 
 
 class HistoricalPrice(BaseModel):
-    priceUsd: float
+    price_usd: float
     date: str
