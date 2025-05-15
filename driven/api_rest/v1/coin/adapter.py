@@ -8,7 +8,7 @@ from domain.historical_price import HistoricalPrice
 from domain.market import Market
 from driven.api_rest.v1.coin.mapper import CoinMapper
 from driven.api_rest.v1.coin.models import CoinDataResponse, CoinDataSingleResponse, MarketDataResponse, \
-    HistoricalPriceData
+    HistoricalPriceData, HistoricalData
 
 
 class CoinRepositoryAdapter(CoinRepositoryPort):
@@ -46,7 +46,7 @@ class CoinRepositoryAdapter(CoinRepositoryPort):
         start: Optional[int] = None,
         end: Optional[int] = None
     ) -> List[HistoricalPrice]:
-        url = f"https://rest.coincap.io/v3/assets/{id}/markets"
+        url = f"https://rest.coincap.io/v3/assets/{id}/history"
         params = {
             "interval": interval,
             "apiKey": os.getenv("API_KEY")
@@ -61,5 +61,5 @@ class CoinRepositoryAdapter(CoinRepositoryPort):
             response = await client.get(url, params=params)
             response.raise_for_status()
 
-            info = HistoricalPriceData(**response.json())
-            return self.mapper.to_domains_historical_price(info)
+            info = HistoricalData(**response.json())
+            return self.mapper.to_domains_historical_price(info.data)
